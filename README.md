@@ -1,4 +1,4 @@
-springrest
+Todo app
 ==========
 
-springrest sample
+This is an todo app developed by using spring rest
