@@ -1,0 +1,22 @@
+// Spring Roo 1.2.4.RELEASE [rev 75337cf] log opened at 2013-09-17 19:19:53
+project --topLevelPackage com.getit.todoapp --projectName todoapp
+jpa setup --database HYPERSONIC_PERSISTENT --provider HIBERNATE 
+entity jpa --class ~.domain.Todo --testAutomatically --activeRecord false
+field string --fieldName name --notNull 
+field date --type java.util.Date --fieldName targetDate --notNull 
+field boolean --fieldName isCompleted 
+enum type --class ~.domain.Priority
+enum constant --name LOW
+enum constant --name MEDIUM
+enum constant --name HIGH
+field enum --type ~.domain.Priority --fieldName priority --class ~.domain.Todo
+repository jpa --interface ~.repository.TodoRepository --entity ~.domain.Todo
+service type --interface ~.service.TodoService --entity ~.domain.Todo
+json all 
+web mvc json setup
+web mvc json all --package com.getit.todoapp.rest
+quit
+// Spring Roo 1.2.4.RELEASE [rev 75337cf] log closed at 2013-09-17 19:31:19
+// Spring Roo 1.2.4.RELEASE [rev 75337cf] log opened at 2013-09-17 20:03:37
+quit
+// Spring Roo 1.2.4.RELEASE [rev 75337cf] log closed at 2013-09-17 20:03:50
