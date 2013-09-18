@@ -12,7 +12,7 @@ var TodoController = function($scope, $http,$filter) {
     }
 
     $scope.addNewTodo = function(newTodo) {
-        newTodo.targetDate= $filter('date')(new Date(), 'medium');
+        newTodo.targetDate= $filter('date')(new Date(), 'MM/dd/yyyy');
         newTodo.isCompleted=false;
         $http.post('todoes',newTodo).success(function() {
             $scope.fetchCarsList();
@@ -27,10 +27,8 @@ var TodoController = function($scope, $http,$filter) {
         $scope.todo = {};
     }
 
-    $scope.removeCar = function(car) {
-        console.log('Deleting : '+car.name);
-
-        $http.delete('todoes/'+car.id).success(function() {
+    $scope.removeCar = function(todo) {
+        $http.delete('todoes/'+todo.id).success(function() {
             $scope.fetchCarsList();
         });
     }
