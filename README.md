@@ -11,7 +11,7 @@ Tools used :
  
 Steps to run :
 
-	git clone https://github.com/kiranreddykasa/springrest.git
+	git clone https://github.com/kiranreddykasa/springrest-angularjs.git
 	cd springrest
 	mvn clean package tomcat:run
 	http://localhost:8080/todoapp/todoes
