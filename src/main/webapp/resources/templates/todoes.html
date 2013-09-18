@@ -1,0 +1,60 @@
+
+<div class="control-group">
+    <form class="form-horizontal">
+
+
+        <div class="control-group">
+            <label class="control-label" for="inputName">Name</label>
+            <div class="controls">
+                <input type="text" id="inputName" ng-model="todo.name" placeholder="name">
+            </div>
+        </div>
+
+        <div class="control-group">
+            <label class="control-label" for="priority">Priority</label>
+            <div class="controls">
+                <select id="priority" ng-model="todo.priority">
+                    <option>LOW</option>
+                    <option>MEDIUM</option>
+                    <option>HIGH</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="control-group">
+            <div class="controls">
+
+                <button class="btn btn-primary" ng-disabled="!todo.name" ng-click="addNewTodo(todo)">Add Todo</button>
+            </div>
+        </div>
+
+    </form>
+</div>
+
+<h3>Todo List</h3>
+<div class="alert alert-info" style="width:400px;" ng-show="todos.length == 0">
+    No Todo items found
+</div>
+<table class="table table-bordered table-striped" style="width:450px;" ng-show="todos.length > 0">
+    <thead>
+    <tr>
+        <th style="text-align: center;">Status</th>
+        <th style="text-align: center;">Todo Name</th>
+        <th style="text-align: center;">Target Date</th>
+        <th style="text-align: center;">Priority</th>
+        <th style="text-align: center; width: 25px;">Action</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr ng-repeat="todo in todos">
+
+        <td><input type="checkbox" ng-model="todo.isCompleted" ng-change=changeStatus(todo)></td>
+        <td> <span class="done-{{todo.isCompleted}}">{{todo.name}}</span></td>
+        <td><span class="done-{{todo.isCompleted}}">{{todo.targetDate}}</span></td>
+        <td><span class="done-{{todo.isCompleted}}">{{todo.priority}}</span></td>
+        <td  style="width:70px;text-align: center;"><button class="btn btn-mini btn-danger" ng-click="removeCar(todo)">Remove</button></td>
+
+    </tr>
+    </tbody>
+</table>
+<button class="btn btn-danger"  ng-show="todos.length > 1" ng-click="removeAllTodos()">Remove All Todos</button>
