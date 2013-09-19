@@ -6,6 +6,7 @@ package com.getit.todoapp.domain;
 import com.getit.todoapp.domain.Priority;
 import com.getit.todoapp.domain.Todo;
 import com.getit.todoapp.domain.TodoDataOnDemand;
+import com.getit.todoapp.domain.Userinfo;
 import com.getit.todoapp.repository.TodoRepository;
 import com.getit.todoapp.service.TodoService;
 import java.security.SecureRandom;
@@ -41,6 +42,7 @@ privileged aspect TodoDataOnDemand_Roo_DataOnDemand {
         setName(obj, index);
         setPriority(obj, index);
         setTargetDate(obj, index);
+        setUserName(obj, index);
         return obj;
     }
     
@@ -62,6 +64,11 @@ privileged aspect TodoDataOnDemand_Roo_DataOnDemand {
     public void TodoDataOnDemand.setTargetDate(Todo obj, int index) {
         Date targetDate = new GregorianCalendar(Calendar.getInstance().get(Calendar.YEAR), Calendar.getInstance().get(Calendar.MONTH), Calendar.getInstance().get(Calendar.DAY_OF_MONTH), Calendar.getInstance().get(Calendar.HOUR_OF_DAY), Calendar.getInstance().get(Calendar.MINUTE), Calendar.getInstance().get(Calendar.SECOND) + new Double(Math.random() * 1000).intValue()).getTime();
         obj.setTargetDate(targetDate);
+    }
+    
+    public void TodoDataOnDemand.setUserName(Todo obj, int index) {
+        Userinfo userName = null;
+        obj.setUserName(userName);
     }
     
     public Todo TodoDataOnDemand.getSpecificTodo(int index) {
