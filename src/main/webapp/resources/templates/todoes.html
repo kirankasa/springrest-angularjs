@@ -1,4 +1,7 @@
+<div class="alert alert-info " >
+    <span>{{remaining()}} of {{todos.length}} remaining items</span>
 
+</div>
 <div class="control-group">
     <form class="form-horizontal">
 
@@ -60,7 +63,7 @@
         <td> <span class="done-{{todo.isCompleted}}">{{todo.name}}</span></td>
         <td><span class="done-{{todo.isCompleted}}">{{todo.targetDate}}</span></td>
         <td><span class="done-{{todo.isCompleted}}">{{todo.priority}}</span></td>
-        <td  style="width:70px;text-align: center;"><button class="btn btn-mini btn-danger" ng-click="removeCar(todo)">Remove</button></td>
+        <td  style="width:70px;text-align: center;"><button class="btn btn-mini btn-danger" ng-click="removeTodo(todo)">Remove</button></td>
 
     </tr>
     </tbody>

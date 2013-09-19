@@ -6,7 +6,7 @@
  */
 var TodoController = function($scope, $http,$filter, $timeout) {
 
-    $scope.fetchCarsList = function() {
+    $scope.fetchTodoList = function() {
         $http.get('todoes').success(function(todoList){
             $scope.todos = todoList;
         });
@@ -16,7 +16,7 @@ var TodoController = function($scope, $http,$filter, $timeout) {
         newTodo.targetDate= $filter('date')($scope.dt, 'MM/dd/yyyy');
         newTodo.isCompleted=false;
         $http.post('todoes',newTodo).success(function() {
-            $scope.fetchCarsList();
+            $scope.fetchTodoList();
         });
         $scope.todo = {};
         $scope.dt=null;
@@ -24,25 +24,33 @@ var TodoController = function($scope, $http,$filter, $timeout) {
 
     $scope.changeStatus = function(todo) {
         $http.put('todoes/'+todo.id,todo).success(function() {
-            $scope.fetchCarsList();
+            $scope.fetchTodoList();
         });
         $scope.todo = {};
     }
 
-    $scope.removeCar = function(todo) {
+    $scope.removeTodo = function(todo) {
         $http.delete('todoes/'+todo.id).success(function() {
-            $scope.fetchCarsList();
+            $scope.fetchTodoList();
         });
     }
 
     $scope.removeAllTodos = function() {
         $http.delete('todoes').success(function() {
-            $scope.fetchCarsList();
+            $scope.fetchTodoList();
         });
 
     };
 
-    $scope.fetchCarsList();
+    $scope.remaining = function() {
+        var count = 0;
+        angular.forEach($scope.todos, function(todo) {
+            count += todo.isCompleted ? 0 : 1;
+        });
+        return count;
+    };
+
+    $scope.fetchTodoList();
 
     $scope.today = function() {
         $scope.dt = new Date();
