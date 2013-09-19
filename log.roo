@@ -20,3 +20,7 @@ quit
 // Spring Roo 1.2.4.RELEASE [rev 75337cf] log opened at 2013-09-17 20:03:37
 quit
 // Spring Roo 1.2.4.RELEASE [rev 75337cf] log closed at 2013-09-17 20:03:50
+// Spring Roo 1.2.4.RELEASE [rev 75337cf] log opened at 2013-09-19 16:51:42
+jpa setup --database MYSQL --provider HIBERNATE 
+quit
+// Spring Roo 1.2.4.RELEASE [rev 75337cf] log closed at 2013-09-19 16:54:58
