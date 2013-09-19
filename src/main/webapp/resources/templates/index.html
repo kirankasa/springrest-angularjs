@@ -12,16 +12,16 @@
 
     <div class="masthead">
         <h3 class="muted">Todo App</h3>
-        <div class="navbar">
+        <div class="navbar" ng-controller="HeaderController">
             <div class="navbar-inner">
                 <div class="container">
                     <ul class="nav">
-                        <li class="active"><a href="#signup">Home</a></li>
-                        <li><a href="#/todoes">Todos</a></li>
-                        <li><a href="#">Services</a></li>
-                        <li><a href="#">Downloads</a></li>
-                        <li><a href="#">About</a></li>
-                        <li><a href="#">Contact</a></li>
+                        <li ng-class="{ active: isActive('/signup')}"><a href="#/signup">Home</a></li>
+                        <li ng-class="{ active: isActive('/todoes')}"><a href="#/todoes">Todos</a></li>
+                        <li ng-class="{ active: isActive('/')}"><a href="#">Services</a></li>
+                        <li ng-class="{ active: isActive('/')}"><a href="#">Downloads</a></li>
+                        <li ng-class="{ active: isActive('/')}"><a href="#">About</a></li>
+                        <li ng-class="{ active: isActive('/')}"><a href="#">Contact</a></li>
                     </ul>
                 </div>
             </div>
@@ -40,6 +40,7 @@
 <script src="resources/js/services.js"></script>
 <script src="resources/js/controllers/TodoController.js"></script>
 <script src="resources/js/controllers/UserController.js"></script>
+<script src="resources/js/controllers/HeaderController.js"></script>
 <script src="resources/js/filters.js"></script>
 <script src="resources/js/directives.js"></script>
 </body>
