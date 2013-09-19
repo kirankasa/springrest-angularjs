@@ -51,3 +51,7 @@ focus --class ~.domain.Userinfo
 field string --fieldName password --notNull 
 quit
 // Spring Roo 1.2.4.RELEASE [rev 75337cf] log closed at 2013-09-19 17:40:54
+// Spring Roo 1.2.4.RELEASE [rev 75337cf] log opened at 2013-09-19 20:19:26
+security setup
+quit
+// Spring Roo 1.2.4.RELEASE [rev 75337cf] log closed at 2013-09-19 20:20:57
