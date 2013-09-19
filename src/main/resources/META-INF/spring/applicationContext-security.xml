@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans:beans xmlns="http://www.springframework.org/schema/security" 
+    xmlns:beans="http://www.springframework.org/schema/beans" 
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+    xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+        http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-3.1.xsd">
+    <!-- HTTP security configurations -->
+    <http use-expressions="true" create-session="stateless" entry-point-ref="authenticationEntryPoint">
+        <!-- Configure these elements to secure URIs in your application -->
+        <intercept-url pattern="/todoes/**" access="hasRole('ROLE_ADMIN')" />
+        <intercept-url pattern="/userinfoes/**" access="isAuthenticated()" />
+        <intercept-url pattern="/resources/**" access="permitAll" />
+        <intercept-url pattern="/login/**" access="permitAll" />
+        <intercept-url pattern="/**" access="isAuthenticated()" />
+        <custom-filter ref="basicAuthenticationFilter" after="BASIC_AUTH_FILTER"/>
+    </http>
+    
+    
+    
+    <!-- Configure Authentication mechanism -->
+    <authentication-manager alias="authenticationManager">
+        <!-- SHA-256 values can be produced using 'echo -n your_desired_password | sha256sum' (using normal *nix environments) -->
+        <authentication-provider>
+            <password-encoder hash="sha-256" />
+            <user-service>
+                <user name="admin" password="8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918" authorities="ROLE_ADMIN" />
+                <user name="user" password="04f8996da763b7a969b1028ee3007569eaf3a635486ddab211d512c85b9df8fb" authorities="ROLE_USER" />
+            </user-service>
+        </authentication-provider>
+    </authentication-manager>
+</beans:beans>

@@ -67,4 +67,15 @@
         <property name="persistenceUnitName" value="persistenceUnit"/>
         <property name="dataSource" ref="dataSource"/>
     </bean>
+    
+    <bean id="authenticationEntryPoint" 
+        class="com.getit.todoapp.service.PlainTextBasicAuthenticationEntryPoint">
+        <property name="realmName" value="test.com" />
+    </bean> 
+    
+    <bean id="basicAuthenticationFilter"
+        class="org.springframework.security.web.authentication.www.BasicAuthenticationFilter">
+        <property name="authenticationManager" ref="authenticationManager" />
+        <property name="authenticationEntryPoint" ref="authenticationEntryPoint" />
+    </bean>
 </beans>
