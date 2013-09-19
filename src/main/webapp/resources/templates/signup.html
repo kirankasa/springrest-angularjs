@@ -1,0 +1,49 @@
+
+<div class="control-group">
+    <form class="form-horizontal">
+
+
+        <div class="control-group">
+            <label class="control-label" for="firstName">First Name</label>
+            <div class="controls">
+                <input type="text" id="firstName" ng-model="user.firstName" placeholder="First Name" required="required">
+            </div>
+        </div>
+
+        <div class="control-group">
+            <label class="control-label" for="lastName">Last Name</label>
+            <div class="controls">
+                <input type="text" id="lastName" ng-model="user.lastName" placeholder="Last Name" required="required">
+            </div>
+        </div>
+
+        <div class="control-group">
+            <label class="control-label" for="userName">UserName</label>
+            <div class="controls">
+                <input type="text" id="userName" ng-model="user.userName" placeholder="User Name" required="required">
+            </div>
+        </div>
+
+        <div class="control-group">
+            <label class="control-label" for="email">Email</label>
+            <div class="controls">
+                <input type="text" id="email" ng-model="user.email" placeholder="Email" required="required">
+            </div>
+        </div>
+
+
+
+        <div class="control-group">
+            <div class="controls">
+
+                <button class="btn btn-primary" ng-disabled="!user.userName" ng-click="signUpUser(user)">Sign Up</button>
+            </div>
+        </div>
+
+    </form>
+</div>
+
+<div class="alert alert-info" style="width:400px;" ng-show="signupsuccess">
+    User  registered successfully
+</div>
+
