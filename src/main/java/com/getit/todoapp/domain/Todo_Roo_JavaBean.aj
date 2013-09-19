@@ -5,6 +5,7 @@ package com.getit.todoapp.domain;
 
 import com.getit.todoapp.domain.Priority;
 import com.getit.todoapp.domain.Todo;
+import com.getit.todoapp.domain.Userinfo;
 import java.util.Date;
 
 privileged aspect Todo_Roo_JavaBean {
@@ -39,6 +40,14 @@ privileged aspect Todo_Roo_JavaBean {
     
     public void Todo.setPriority(Priority priority) {
         this.priority = priority;
+    }
+    
+    public Userinfo Todo.getUserName() {
+        return this.userName;
+    }
+    
+    public void Todo.setUserName(Userinfo userName) {
+        this.userName = userName;
     }
     
 }

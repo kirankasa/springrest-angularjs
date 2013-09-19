@@ -26,7 +26,6 @@ var TodoController = function($scope, $http,$filter, $timeout) {
         $http.put('todoes/'+todo.id,todo).success(function() {
             $scope.fetchTodoList();
         });
-        $scope.todo = {};
     }
 
     $scope.removeTodo = function(todo) {

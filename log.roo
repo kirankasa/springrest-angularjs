@@ -20,3 +20,34 @@ quit
 // Spring Roo 1.2.4.RELEASE [rev 75337cf] log opened at 2013-09-17 20:03:37
 quit
 // Spring Roo 1.2.4.RELEASE [rev 75337cf] log closed at 2013-09-17 20:03:50
+// Spring Roo 1.2.4.RELEASE [rev 75337cf] log opened at 2013-09-19 12:52:46
+entity jpa --class ~.domain.Userinfo --testAutomatically --activeRecord false
+field string --fieldName userName --notNull --unique 
+field string --fieldName email --notNull --unique 
+field string --fieldName firstName
+field string --fieldName lastName
+field set --fieldName todoes --type ~.domain.Todo --cardinality ONE_TO_MANY --mappedBy user
+focus --class ~.domain.Todo
+// [failed] field reference --fieldName user --type ~.domain.Userinfo --cardinality MANY_TO_ONE 
+field reference --fieldName userName --type ~.domain.Userinfo --cardinality MANY_TO_ONE 
+json all 
+web mvc json all 
+web mvc json all --package rest
+web mvc json all --package ~.rest
+quit
+// Spring Roo 1.2.4.RELEASE [rev 75337cf] log closed at 2013-09-19 13:18:32
+// Spring Roo 1.2.4.RELEASE [rev 75337cf] log opened at 2013-09-19 13:20:16
+web mvc json all --package ~.rest
+repository jpa --entity ~.domain.Userinfo --interface ~.repository.UserRepository
+service type --interface ~.service.UserService --entity ~.domain.Userinfo
+web mvc json all --package ~.rest
+json all
+web mvc json all --package ~.rest
+web mvc json all --package ~.rest
+quit
+// Spring Roo 1.2.4.RELEASE [rev 75337cf] log closed at 2013-09-19 13:25:04
+// Spring Roo 1.2.4.RELEASE [rev 75337cf] log opened at 2013-09-19 17:38:10
+focus --class ~.domain.Userinfo
+field string --fieldName password --notNull 
+quit
+// Spring Roo 1.2.4.RELEASE [rev 75337cf] log closed at 2013-09-19 17:40:54

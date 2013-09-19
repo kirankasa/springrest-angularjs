@@ -6,6 +6,7 @@ package com.getit.todoapp.domain;
 import com.getit.todoapp.domain.Priority;
 import com.getit.todoapp.domain.Todo;
 import com.getit.todoapp.domain.TodoDataOnDemand;
+import com.getit.todoapp.domain.UserinfoDataOnDemand;
 import com.getit.todoapp.repository.TodoRepository;
 import com.getit.todoapp.service.TodoService;
 import java.security.SecureRandom;
@@ -28,6 +29,9 @@ privileged aspect TodoDataOnDemand_Roo_DataOnDemand {
     private Random TodoDataOnDemand.rnd = new SecureRandom();
     
     private List<Todo> TodoDataOnDemand.data;
+    
+    @Autowired
+    UserinfoDataOnDemand TodoDataOnDemand.userinfoDataOnDemand;
     
     @Autowired
     TodoService TodoDataOnDemand.todoService;
