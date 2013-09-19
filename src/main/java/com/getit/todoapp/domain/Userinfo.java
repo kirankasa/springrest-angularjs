@@ -40,4 +40,9 @@ public class Userinfo {
      */
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "userName")
     private Set<Todo> todoes = new HashSet<Todo>();
+
+    /**
+     */
+    @NotNull
+    private String password;
 }

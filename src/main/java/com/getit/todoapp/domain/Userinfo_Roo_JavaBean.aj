@@ -49,4 +49,12 @@ privileged aspect Userinfo_Roo_JavaBean {
         this.todoes = todoes;
     }
     
+    public String Userinfo.getPassword() {
+        return this.password;
+    }
+    
+    public void Userinfo.setPassword(String password) {
+        this.password = password;
+    }
+    
 }

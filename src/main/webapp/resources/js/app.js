@@ -19,5 +19,5 @@ App.config(['$routeProvider', function ($routeProvider) {
 
 
 
-    $routeProvider.otherwise({redirectTo: '/todoes'});
+    $routeProvider.otherwise({redirectTo: '/signup'});
 }]);

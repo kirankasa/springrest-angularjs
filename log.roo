@@ -46,3 +46,8 @@ web mvc json all --package ~.rest
 web mvc json all --package ~.rest
 quit
 // Spring Roo 1.2.4.RELEASE [rev 75337cf] log closed at 2013-09-19 13:25:04
+// Spring Roo 1.2.4.RELEASE [rev 75337cf] log opened at 2013-09-19 17:38:10
+focus --class ~.domain.Userinfo
+field string --fieldName password --notNull 
+quit
+// Spring Roo 1.2.4.RELEASE [rev 75337cf] log closed at 2013-09-19 17:40:54
