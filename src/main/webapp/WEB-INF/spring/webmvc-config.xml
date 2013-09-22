@@ -12,7 +12,7 @@
     
     <mvc:resources location="/resources/" mapping="/resources/**"/>
     
-     <mvc:view-controller path="/login"/>
+    <mvc:view-controller path="/login" view-name="/resources/templates/login.html"/>
     <mvc:view-controller path="/" view-name="/resources/templates/index.html"/>
      
 </beans>
