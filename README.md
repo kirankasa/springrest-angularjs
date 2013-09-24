@@ -26,12 +26,22 @@ Tools used :
 
 Prerequisites :
 
-Mysql database
-   Modify database.properties accordingly.
-   Modify hibernate.hbm2ddl.auto field in persistence.xml accordingly.
+<p>
+* Mysql database
+</p>
+<p>
+   	Modify database.properties accordingly.
+</p>
+<p>	
+   	Modify hibernate.hbm2ddl.auto field in persistence.xml accordingly.
+</p>
 
-Sendgrid
-   Modify sendgrid.properties for sending emails.
+<p>
+* Sendgrid
+</p>
+<p>
+	Modify sendgrid.properties for sending emails.
+</p>
 
 Steps to run :
 
