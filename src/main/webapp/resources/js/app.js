@@ -17,6 +17,10 @@ App.config(['$routeProvider', function ($routeProvider) {
         controller: UserController
     });
 
+    $routeProvider.when('/feedback', {
+        templateUrl: 'resources/templates/feedback.html',
+        controller: FeedbackController
+    });
 
 
     $routeProvider.otherwise({redirectTo: '/signup'});
