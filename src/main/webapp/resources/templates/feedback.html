@@ -7,14 +7,14 @@
         <div class="control-group">
             <label class="control-label" for="email">Your Email</label>
             <div class="controls">
-                <input type="text" id="email" ng-model="feedback.email" required="required" placeholder="me@example.com" pattern="[^@]+@[^@]+\.[a-zA-Z]{2,6}">
+                <input type="text" id="email" ng-model="feedback.email"  placeholder="me@example.com" pattern="[^@]+@[^@]+\.[a-zA-Z]{2,6}" required />
             </div>
         </div>
 
         <div class="control-group">
             <label class="control-label" for="body">Comment</label>
             <div class="controls">
-                <textarea ng-model="feedback.body" id="body" rows="7" cols="10" required="required"></textarea>
+                <textarea ng-model="feedback.body" id="body" rows="7" cols="10" required></textarea>
             </div>
         </div>
 
@@ -22,7 +22,7 @@
         <div class="control-group">
             <div class="controls">
 
-                <button class="btn btn-primary" ng-disabled="!feedback.email || !feedback.body" ng-click="feedbackSubmit(feedback)">Feedback</button>
+                <button class="btn btn-primary" type="submit"  ng-submit="feedbackSubmit(feedback)">Feedback</button>
             </div>
         </div>
 
