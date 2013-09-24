@@ -43,6 +43,11 @@ public class Todo {
      */
     @Enumerated
     private Priority priority;
+    
+    /**
+     */
+    @ManyToOne
+    private Userinfo userName;
 
     public String toJson() {
         return new JSONSerializer().exclude("*.class").transform(new DateTransformer("MM/dd/yyyy"), Date.class).serialize(this);
@@ -68,8 +73,5 @@ public class Todo {
         return new JSONDeserializer<List<Todo>>().use(null, ArrayList.class).use("values", Todo.class).deserialize(json);
     }
 
-    /**
-     */
-    @ManyToOne
-    private Userinfo userName;
+    
 }

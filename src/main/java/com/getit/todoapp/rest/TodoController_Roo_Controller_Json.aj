@@ -62,17 +62,7 @@ privileged aspect TodoController_Roo_Controller_Json {
         return new ResponseEntity<String>(headers, HttpStatus.CREATED);
     }
     
-    @RequestMapping(value = "/{id}", method = RequestMethod.PUT, headers = "Accept=application/json")
-    public ResponseEntity<String> TodoController.updateFromJson(@RequestBody String json, @PathVariable("id") Long id) {
-        HttpHeaders headers = new HttpHeaders();
-        headers.add("Content-Type", "application/json");
-        Todo todo = Todo.fromJsonToTodo(json);
-        if (todoService.updateTodo(todo) == null) {
-            return new ResponseEntity<String>(headers, HttpStatus.NOT_FOUND);
-        }
-        return new ResponseEntity<String>(headers, HttpStatus.OK);
-    }
-    
+        
     @RequestMapping(value = "/{id}", method = RequestMethod.DELETE, headers = "Accept=application/json")
     public ResponseEntity<String> TodoController.deleteFromJson(@PathVariable("id") Long id) {
         Todo todo = todoService.findTodo(id);
