@@ -2,7 +2,7 @@
     <span>{{remaining()}} of {{todos.length}} remaining items</span>
 </div>
 <div class="control-group">
-    <form class="form-horizontal">
+    <form class="form-horizontal" ng-submit="addNewTodo(todo)">
 
 
         <div class="control-group">
@@ -34,7 +34,7 @@
         <div class="control-group">
             <div class="controls">
 
-                <button class="btn btn-primary" type="submit"  ng-submit="addNewTodo(todo)">Add Todo</button>
+                <button class="btn btn-primary" type="submit"  >Add Todo</button>
             </div>
         </div>
 
