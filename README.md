@@ -18,8 +18,21 @@ Todo app
 Tools used :
 * [Spring roo](https://github.com/spring-projects/spring-roo#readme)
 * [Maven](http://maven.apache.org/)  
-* [Angularjs](http://angularjs.org/)  
- 
+* [Angularjs](http://angularjs.org/)
+* [MySql](http://www.mysql.com/)
+* [SendGrid](http://sendgrid.com/)
+
+
+
+Prerequisites :
+
+Mysql database
+   Modify database.properties accordingly.
+   Modify hibernate.hbm2ddl.auto field in persistence.xml accordingly.
+
+Sendgrid
+   Modify sendgrid.properties for sending emails.
+
 Steps to run :
 
 	git clone https://github.com/kiranreddykasa/springrest-angularjs.git
