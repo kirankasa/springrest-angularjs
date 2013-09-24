@@ -5,17 +5,16 @@
     xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
         http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-3.1.xsd">
     <!-- HTTP security configurations -->
-    <http use-expressions="true">
     
-     <form-login login-processing-url="/resources/j_spring_security_check" login-page="/login" default-target-url="/" authentication-failure-url="/login?login_error=t" />
-        <logout logout-url="/resources/j_spring_security_logout" />        
-        <!-- Configure these elements to secure URIs in your application -->
-        <intercept-url pattern="/todoes/**" access="hasRole('ROLE_ADMIN')" />
-        <intercept-url pattern="/userinfoes/**" access="isAuthenticated()" />
-        <intercept-url pattern="/resources/**" access="permitAll" />
-        <intercept-url pattern="/login/**" access="permitAll" />
-        <intercept-url pattern="/**" access="isAuthenticated()" />
+    <http use-expressions="true" entry-point-ref="restAuthenticationEntryPoint">
+        <intercept-url pattern="/todoes/**" access="isAuthenticated()" />
+
+        <form-login authentication-success-handler-ref="mySuccessHandler" />
+
+        <logout />
     </http>
+
+    <beans:bean id="mySuccessHandler" class="com.getit.todoapp.service.MySavedRequestAwareAuthenticationSuccessHandler" />
     
     
     
