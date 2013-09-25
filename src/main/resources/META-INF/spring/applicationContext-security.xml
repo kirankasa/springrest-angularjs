@@ -9,12 +9,14 @@
     <http use-expressions="true" entry-point-ref="restAuthenticationEntryPoint">
         <intercept-url pattern="/todoes/**" access="isAuthenticated()" />
 
-        <form-login authentication-success-handler-ref="mySuccessHandler" />
+        <form-login authentication-success-handler-ref="mySuccessHandler" authentication-failure-handler-ref="myFailureHandler"/>
 
         <logout />
     </http>
 
     <beans:bean id="mySuccessHandler" class="com.getit.todoapp.service.MySavedRequestAwareAuthenticationSuccessHandler" />
+    
+    <beans:bean id="myFailureHandler" class="com.getit.todoapp.service.MyAuthenticationFailureHandler" />
     
     
     
