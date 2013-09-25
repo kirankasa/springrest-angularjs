@@ -21,6 +21,17 @@ App.config(['$routeProvider', function ($routeProvider) {
         templateUrl: 'resources/templates/feedback.html',
         controller: FeedbackController
     });
+    
+    $routeProvider.when('/downloads', {
+        templateUrl: 'resources/templates/download.html',
+        
+    });
+    
+    $routeProvider.when('/contact', {
+        templateUrl: 'resources/templates/contact.html',
+        
+    });
+
 
 
     $routeProvider.otherwise({redirectTo: '/signup'});
