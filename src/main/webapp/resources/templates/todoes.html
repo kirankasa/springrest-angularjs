@@ -2,20 +2,20 @@
     <span>{{remaining()}} of {{todos.length}} remaining items</span>
 </div>
 <div class="control-group">
-    <form class="form-horizontal">
+    <form class="form-horizontal" ng-submit="addNewTodo(todo)">
 
 
         <div class="control-group">
             <label class="control-label" for="inputName">Name</label>
             <div class="controls">
-                <input type="text" id="inputName" ng-model="todo.name" placeholder="name">
+                <input type="text" id="inputName" ng-model="todo.name" placeholder="name" required>
             </div>
         </div>
 
         <div class="control-group">
             <label class="control-label" for="priority">Priority</label>
             <div class="controls">
-                <select id="priority" ng-model="todo.priority">
+                <select id="priority" ng-model="todo.priority" required>
                     <option>LOW</option>
                     <option>MEDIUM</option>
                     <option>HIGH</option>
@@ -26,7 +26,7 @@
         <div class="control-group">
             <label class="control-label" >Target date</label>
             <div class="controls">
-                <input type="text" datepicker-popup="dd-MMMM-yyyy" ng-model="dt" is-open="opened" min="minDate" max="'2015-06-22'" datepicker-options="dateOptions"   />
+                <input type="text" datepicker-popup="dd-MMMM-yyyy" ng-model="dt" is-open="opened" min="minDate" max="'2015-06-22'" datepicker-options="dateOptions"   required/>
                 <button class="btn" ng-click="open()"><i class="icon-calendar"></i></button>
             </div>
         </div>
@@ -34,7 +34,7 @@
         <div class="control-group">
             <div class="controls">
 
-                <button class="btn btn-primary" ng-disabled="!todo.name" ng-click="addNewTodo(todo)">Add Todo</button>
+                <button class="btn btn-primary" type="submit"  >Add Todo</button>
             </div>
         </div>
 

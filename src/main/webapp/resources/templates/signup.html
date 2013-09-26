@@ -1,6 +1,6 @@
 
 <div class="control-group">
-    <form class="form-horizontal">
+    <form class="form-horizontal" ng-submit="signUpUser(user)">
 
 
         <div class="control-group">
@@ -20,21 +20,21 @@
         <div class="control-group">
             <label class="control-label" for="userName">UserName</label>
             <div class="controls">
-                <input type="text" id="userName" ng-model="user.userName" placeholder="User Name" required="required">
+                <input type="text" id="userName" ng-model="user.userName" placeholder="User Name" required="required" />
             </div>
         </div>
 
         <div class="control-group">
             <label class="control-label" for="email">Email</label>
             <div class="controls">
-                <input type="text" id="email" ng-model="user.email" placeholder="Email" required="required">
+                <input type="text" id="email" ng-model="user.email" placeholder="Email" required />
             </div>
         </div>
 
         <div class="control-group">
             <label class="control-label" for="password">Password</label>
             <div class="controls">
-                <input type="password" id="password" ng-model="user.password" placeholder="Password" required>
+                <input type="password" id="password" ng-model="user.password" placeholder="Password" required />
             </div>
         </div>
 
@@ -43,7 +43,7 @@
         <div class="control-group">
             <div class="controls">
 
-                <button class="btn btn-primary" ng-disabled="!user.userName" ng-click="signUpUser(user)">Sign Up</button>
+                <button class="btn btn-primary" type="submit" >Sign Up</button>
             </div>
         </div>
 
