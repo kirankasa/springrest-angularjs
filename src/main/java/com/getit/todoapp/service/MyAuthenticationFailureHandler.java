@@ -24,6 +24,7 @@ public class MyAuthenticationFailureHandler extends
 	
 		PrintWriter  printWriter=response.getWriter();
 		JSONObject jsonObject=new JSONObject();
+		System.out.println(exception.getMessage());
 		try {
 			jsonObject.put("message", "Invalid username");
 			jsonObject.put("status", "Not okay");
