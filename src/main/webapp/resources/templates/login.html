@@ -1,9 +1,8 @@
 
 
-<div class="alert alert-info" style="width:400px;" ng-show="feedbacksuccess">
-    Invalid username or password
+<div id="flash" class="alert-box alert" ng-show="flash">
+    {{ flash }}
 </div>
-
 
 <div class="control-group">
     <form class="form-horizontal" ng-submit="login(credentials)" >
@@ -33,5 +32,9 @@
         </div>
 
     </form>
+
+    <div>
+       <h4>New user ? <a href="#/signup">Click here.. </a>to register</h4>
+    </div>
 </div>
 

@@ -35,6 +35,15 @@ App.config(['$routeProvider', function ($routeProvider) {
         controller: 'LoginController'
     });
 
+    $routeProvider.when('/logout', {
+        templateUrl: 'resources/templates/login.html',
+        controller: 'LoginController'
+    });
+
+    $routeProvider.when('/home', {
+        templateUrl: 'resources/templates/home.html'
+    });
+
     $routeProvider.otherwise({redirectTo: '/signup'});
 }]);
 
@@ -49,7 +58,7 @@ App.config(function($httpProvider) {
             if(response.status === 401) {
                 SessionService.unset('authenticated');
                 $location.path('/login');
-                FlashService.show(response.data.flash);
+                FlashService.show("Please log in to continue.");
             }
             return $q.reject(response);
         };
@@ -123,8 +132,8 @@ App.factory("AuthenticationService", function($http, $sanitize, SessionService, 
     };
 
     var loginError = function(response) {
-        console.log("Error during login"+response);
-        FlashService.show(response.flash);
+        //console.log("Error during login"+response);
+        FlashService.show("Invalid username or password");
     };
 
 /*

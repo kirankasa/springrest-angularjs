@@ -34,7 +34,7 @@ public class MyAuthenticationFailureHandler extends
 			e.printStackTrace();
 		}
 		
-		response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR,jsonObject.toString());
+		response.sendError(HttpServletResponse.SC_UNAUTHORIZED,jsonObject.toString());
 		
 	}
 }
