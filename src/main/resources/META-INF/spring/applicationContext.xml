@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:aop="http://www.springframework.org/schema/aop" xmlns:context="http://www.springframework.org/schema/context"
 	xmlns:jee="http://www.springframework.org/schema/jee" xmlns:tx="http://www.springframework.org/schema/tx"
@@ -76,6 +75,8 @@
 		<property name="username" value="${email.username}" />
 		<property name="password" value="${email.password}" />
 	</bean>
+
+	<bean id="customService" class="com.getit.todoapp.service.CustomUserDeatilService" />
 
 	<bean id="emailService" class="com.getit.todoapp.service.SendGridEmailService" />
 
