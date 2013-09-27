@@ -1,0 +1,40 @@
+
+
+<div id="flash" class="alert-box alert" ng-show="flash">
+    {{ flash }}
+</div>
+
+<div class="control-group">
+    <form class="form-horizontal" ng-submit="login(credentials)" >
+
+
+
+        <div class="control-group">
+            <label class="control-label" for="j_username">UserName</label>
+            <div class="controls">
+                <input type="text" id="j_username" ng-model="credentials.j_username"  placeholder="username"  required />
+            </div>
+        </div>
+
+        <div class="control-group">
+            <label class="control-label" for="j_password">Password</label>
+            <div class="controls">
+                <input type="password" id="j_password" ng-model="credentials.j_password"  placeholder="password"  required />
+            </div>
+        </div>
+
+
+        <div class="control-group">
+            <div class="controls">
+
+                <button class="btn btn-primary" type="submit"  >Login</button>
+            </div>
+        </div>
+
+    </form>
+
+    <div>
+       <h4>New user ? <a href="#/signup">Click here.. </a>to register</h4>
+    </div>
+</div>
+

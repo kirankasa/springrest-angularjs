@@ -4,7 +4,7 @@
  * TodoController
  * @constructor
  */
-var TodoController = function($scope, $http,$filter, $timeout) {
+var TodoController = function($scope, $http,$filter, $timeout,$location,AuthenticationService) {
 
     $scope.fetchTodoList = function() {
         $http.get('todoes').success(function(todoList){
@@ -48,6 +48,19 @@ var TodoController = function($scope, $http,$filter, $timeout) {
         });
         return count;
     };
+
+    $scope.logout = function() {
+        AuthenticationService.logout().success(function() {
+            $location.path('/login');
+        });
+    };
+
+    if(AuthenticationService.isLoggedIn()){
+        $scope.showLogout=true;
+    }else{
+        $scope.showLogout=false;
+    }
+
 
     $scope.fetchTodoList();
 
