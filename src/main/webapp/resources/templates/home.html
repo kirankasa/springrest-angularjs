@@ -1,6 +1,60 @@
 
+<div class="pull-right">
+    <button ng-click="logout()" class="btn btn-primary"  data-ng-show="showLogout">Logout</button>
+</div>
 
 <div>
 
+   <p class="lead"> TodoApp lets you manage your tasks. </p>
+
+    <p>
+        This is a sample application developed to illustrate how to build <em>Single page app(SPA)</em> <br>
+        using <strong>Spring MVC </strong> and <strong>Angularjs</strong>.
+    </p>
+
+    <p>
+        <strong>Tools used :</strong> <br>
+        <ul>
+            <li><a href="http://spring.io/">Spring Mvc</a> as backend rest server</li>
+            <li><a href="http://projects.spring.io/spring-roo/">Spring roo</a> for initial start</li>
+            <li><a href="http://maven.apache.org/">Maven</a> as build tool</li>
+            <li><a href="http://angularjs.org/">Angularjs</a> as client side framework</li>
+            <li><a href="http://www.mysql.com/">MySql</a> as database </li>
+            <li><a href="http://sendgrid.com/">SendGrid</a> for sending emails (feedback module)</li>
+        </ul>
+
+         <p>
+            <strong>Prerequisites :  </strong>
+              <ul>
+                <li>Mysql database
+                    <ul>
+                        <li> Modify database.properties accordingly.</li>
+                        <li> Modify hibernate.hbm2ddl.auto field in persistence.xml accordingly.</li>
+                    </ul>
+                </li>
+
+            <li>Sendgrid
+                <ul>
+                    <li> Modify sendgrid.properties for sending emails.</li>
+
+                </ul>
+            </li>
+              </ul>
+
+         </p>
+
+
+    <p>
+        <strong> Steps to run :  </strong>
+
+        <ul>
+            <li>git clone https://github.com/kiranreddykasa/springrest-angularjs.git</li>
+            <li> mvn clean package tomcat:run</li>
+            <li>http://localhost:8080/todoapp/todoes</li>
+        </ul>
+    </p>
+
+
+    </p>
 </div>
 

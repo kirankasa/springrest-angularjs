@@ -4,7 +4,7 @@
  * FeedbackController
  * @constructor
  */
-var FeedbackController = function($scope, $http) {
+var FeedbackController = function($scope, $http, $location,AuthenticationService) {
 
 
 
@@ -14,6 +14,21 @@ var FeedbackController = function($scope, $http) {
         });
         $scope.feedback = {};
     }
+
+
+
+    $scope.logout = function() {
+        AuthenticationService.logout().success(function() {
+            $location.path('/login');
+        });
+    };
+
+    if(AuthenticationService.isLoggedIn()){
+        $scope.showLogout=true;
+    }else{
+        $scope.showLogout=false;
+    }
+
 
 
 }

@@ -23,11 +23,13 @@ App.config(['$routeProvider', function ($routeProvider) {
     });
     
     $routeProvider.when('/downloads', {
-        templateUrl: 'resources/templates/download.html'
+        templateUrl: 'resources/templates/download.html',
+        controller: FeedbackController
     });
     
     $routeProvider.when('/contact', {
-        templateUrl: 'resources/templates/contact.html'
+        templateUrl: 'resources/templates/contact.html',
+        controller: FeedbackController
     });
 
     $routeProvider.when('/login', {
@@ -41,10 +43,11 @@ App.config(['$routeProvider', function ($routeProvider) {
     });
 
     $routeProvider.when('/home', {
-        templateUrl: 'resources/templates/home.html'
+        templateUrl: 'resources/templates/home.html',
+        controller: FeedbackController
     });
 
-    $routeProvider.otherwise({redirectTo: '/signup'});
+    $routeProvider.otherwise({redirectTo: '/home'});
 }]);
 
 App.config(function($httpProvider) {
@@ -148,7 +151,6 @@ App.factory("AuthenticationService", function($http, $sanitize, SessionService, 
 
     return {
         login: function(credentials) {
-            console.log(credentials);
             var payload = $.param({j_username: credentials.j_username, j_password: credentials.j_password});
             var config = {
                 headers: {'Content-Type':'application/x-www-form-urlencoded; charset=UTF-8'}
