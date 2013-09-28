@@ -16,7 +16,7 @@ Todo app
 
 
 Tools used :
-* [Spring roo](https://github.com/spring-projects/spring-roo#readme)
+* [Spring roo](http://projects.spring.io/spring-roo/)
 * [Maven](http://maven.apache.org/)  
 * [Angularjs](http://angularjs.org/)
 * [MySql](http://www.mysql.com/)
