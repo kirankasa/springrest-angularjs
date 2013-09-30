@@ -24,14 +24,14 @@
         <div class="control-group">
             <label class="control-label" for="userName">UserName</label>
             <div class="controls">
-                <input type="text" id="userName" ng-model="user.userName" placeholder="User Name" required="required" />
+                <input type="text" id="userName" ng-model="user.userName" placeholder="User Name"  required="required" />
             </div>
         </div>
 
         <div class="control-group">
             <label class="control-label" for="email">Email</label>
             <div class="controls">
-                <input type="text" id="email" ng-model="user.email" placeholder="Email" required />
+                <input type="text" id="email" ng-model="user.email" placeholder="me@example.com" pattern="[^@]+@[^@]+\.[a-zA-Z]{2,6}" required />
             </div>
         </div>
 
