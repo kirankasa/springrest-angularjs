@@ -103,8 +103,10 @@ public class TodoController {
     }
 
 	@RequestMapping(value = "/{id}", method = RequestMethod.DELETE, headers = "Accept=application/json")
-    public ResponseEntity<String> deleteFromJson(@PathVariable("id") Long id) {
-        Todo todo = todoService.findTodo(id);
+    public ResponseEntity<String> deleteFromJson(@PathVariable("id") Long id,Authentication authentication) {
+        
+        User user=(User) authentication.getPrincipal();
+        Todo todo = todoService.findTodoByUserNameAndId(user.getUsername(),id);
         HttpHeaders headers = new HttpHeaders();
         headers.add("Content-Type", "application/json");
         if (todo == null) {

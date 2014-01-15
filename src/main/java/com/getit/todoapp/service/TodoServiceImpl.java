@@ -2,7 +2,9 @@ package com.getit.todoapp.service;
 
 import com.getit.todoapp.domain.Todo;
 import com.getit.todoapp.repository.TodoRepository;
+
 import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -46,5 +48,11 @@ public class TodoServiceImpl implements TodoService {
 	public List<Todo> findTodosByUserName(String userName) {
 		
 		return todoRepository.findTodosByUserName(userName);
+	}
+	
+	@Override
+	public Todo findTodoByUserNameAndId(String userName,Long id) {
+		
+		return todoRepository.findTodoByUserNameAndId(userName,id);
 	}
 }

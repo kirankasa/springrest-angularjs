@@ -1,6 +1,8 @@
 package com.getit.todoapp.service;
 import com.getit.todoapp.domain.Todo;
+
 import java.util.List;
+
 import org.springframework.roo.addon.layers.service.RooService;
 
 @RooService(domainTypes = { com.getit.todoapp.domain.Todo.class })
@@ -27,4 +29,6 @@ public interface TodoService {
 	public abstract Todo updateTodo(Todo todo);
 
 	public abstract List<Todo> findTodosByUserName(String userName);
+	
+	public abstract Todo findTodoByUserNameAndId(String userName,Long id);
 }

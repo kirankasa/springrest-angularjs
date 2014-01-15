@@ -18,7 +18,7 @@ public class CustomUserDeatilService implements UserDetailsService {
 
 	public static final String ROLE_USER = "ROLE_USER";
 	public static final String ROLE_ADMINISTRATOR = "ROLE_ADMIN";
-	
+
 	@Autowired
 	private UserService userService;
 
@@ -29,35 +29,24 @@ public class CustomUserDeatilService implements UserDetailsService {
 			throws UsernameNotFoundException {
 
 		try {
-			if (username != null && !username.equals("admin")) {
-				Collection<GrantedAuthority> userAuthorities = new ArrayList<GrantedAuthority>();
-				userAuthorities.add(new SimpleGrantedAuthority(ROLE_USER));
 
-				List<Userinfo> userinfos = userService.findByUserName(username);
-						
-				Userinfo userinfo = userinfos.get(0);
+			Collection<GrantedAuthority> userAuthorities = new ArrayList<GrantedAuthority>();
+			userAuthorities.add(new SimpleGrantedAuthority(ROLE_USER));
 
-				User user = new User(userinfo.getUserName(), userinfo.getPassword(), true,
-						true, true, true, userAuthorities);
-				currentUser.set(user);
-				return user;
-			}
-			if (username != null && username.equals("admin")) {
-				Collection<GrantedAuthority> userAuthorities = new ArrayList<GrantedAuthority>();
-				userAuthorities.add(new SimpleGrantedAuthority(ROLE_USER));
-				userAuthorities.add(new SimpleGrantedAuthority(
-						ROLE_ADMINISTRATOR));
-				User user = new User("admin", "admin", true, true, true, true,
-						userAuthorities);
-				currentUser.set(user);
-				return user;
-			}
+			List<Userinfo> userinfos = userService.findByUserName(username);
+
+			Userinfo userinfo = userinfos.get(0);
+
+			User user = new User(userinfo.getUserName(),
+					userinfo.getPassword(), true, true, true, true,
+					userAuthorities);
+			currentUser.set(user);
+			return user;
+
 		} catch (Exception e) {
 			throw new UsernameNotFoundException("Username " + username
 					+ " not found!");
 		}
 
-		throw new UsernameNotFoundException("Username " + username
-				+ " not found!");
 	}
 }

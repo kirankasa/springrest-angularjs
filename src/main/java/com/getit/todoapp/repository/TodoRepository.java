@@ -12,6 +12,10 @@ import com.getit.todoapp.domain.Todo;
 @Repository
 @RooJpaRepository(domainType = Todo.class)
 public interface TodoRepository extends JpaSpecificationExecutor<Todo>, JpaRepository<Todo, Long> {
+	
 	@Query("select t from Todo t where t.userName.userName = ?1")
 	List<Todo> findTodosByUserName(String userName);
+	
+	@Query("select t from Todo t where t.userName.userName = ?1 and t.id= ?2")
+	Todo findTodoByUserNameAndId(String userName,Long id);
 }
