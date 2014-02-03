@@ -48,3 +48,8 @@ Steps to run :
 	git clone https://github.com/kiranreddykasa/springrest-angularjs.git
 	mvn clean package tomcat:run
 	http://localhost:8080/todoapp/
+	
+License
+-------
+
+[The Apache Software License, Version 2.0](http://www.apache.org/licenses/LICENSE-2.0.txt)
