@@ -8,9 +8,7 @@ Todo app
 	<p>
 	   Angular js is used as client side framework
 	</p>
-	 <p>
-            <b>Live Demo hosted at cloud foundry </b> http://todoapp.cfapps.io/ 
-        </p>
+	 
   </div>
 </div>
 
