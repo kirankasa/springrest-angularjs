@@ -26,6 +26,8 @@ import com.getit.todoapp.service.UserService;
 @Controller
 @RequestMapping("/todoes")
 public class TodoController {
+    private static final String APPLICATION_JSON = "application/json";
+    private static final String CONTENT_TYPE = "Content-Type";
 	
 	@Autowired
 	private UserService userService;
@@ -39,7 +41,7 @@ public class TodoController {
 		 User user=(User) authentication.getPrincipal(); 
 		 List<Todo> todos = todoService.findTodosByUserName(user.getUsername());
 		HttpHeaders headers = new HttpHeaders();
-		headers.add("Content-Type", "application/json");
+		headers.add(CONTENT_TYPE, APPLICATION_JSON);
 		for (Todo todo : todos) {
 			todo.setUserName(null);
 			todoService.deleteTodo(todo);
@@ -50,7 +52,7 @@ public class TodoController {
 	@RequestMapping(value = "/{id}", method = RequestMethod.PUT, headers = "Accept=application/json")
     public ResponseEntity<String> updateFromJson(@RequestBody String json, @PathVariable("id") Long id) {
         HttpHeaders headers = new HttpHeaders();
-        headers.add("Content-Type", "application/json");
+        headers.add(CONTENT_TYPE, APPLICATION_JSON);
         Todo todo = Todo.fromJsonToTodo(json.toString());
         if (todoService.updateTodo(todo) == null) {
             return new ResponseEntity<String>(headers, HttpStatus.NOT_FOUND);
@@ -63,7 +65,7 @@ public class TodoController {
     public ResponseEntity<String> showJson(@PathVariable("id") Long id) {
         Todo todo = todoService.findTodo(id);
         HttpHeaders headers = new HttpHeaders();
-        headers.add("Content-Type", "application/json; charset=utf-8");
+        headers.add(CONTENT_TYPE, "application/json; charset=utf-8");
         if (todo == null) {
             return new ResponseEntity<String>(headers, HttpStatus.NOT_FOUND);
         }
@@ -74,7 +76,7 @@ public class TodoController {
     @ResponseBody
     public ResponseEntity<String> listJson(Authentication authentication) {
         HttpHeaders headers = new HttpHeaders();
-        headers.add("Content-Type", "application/json; charset=utf-8");
+        headers.add(CONTENT_TYPE, "application/json; charset=utf-8");
         User user=(User) authentication.getPrincipal(); 
         List<Todo> result = todoService.findTodosByUserName(user.getUsername());
         return new ResponseEntity<String>(Todo.toJsonArray(result), headers, HttpStatus.OK);
@@ -88,7 +90,7 @@ public class TodoController {
         todo.setUserName(userinfo);
         todoService.saveTodo(todo);
         HttpHeaders headers = new HttpHeaders();
-        headers.add("Content-Type", "application/json");
+        headers.add(CONTENT_TYPE, APPLICATION_JSON);
         return new ResponseEntity<String>(headers, HttpStatus.CREATED);
     }
 
@@ -98,7 +100,7 @@ public class TodoController {
             todoService.saveTodo(todo);
         }
         HttpHeaders headers = new HttpHeaders();
-        headers.add("Content-Type", "application/json");
+        headers.add(CONTENT_TYPE, APPLICATION_JSON);
         return new ResponseEntity<String>(headers, HttpStatus.CREATED);
     }
 
@@ -108,7 +110,7 @@ public class TodoController {
         User user=(User) authentication.getPrincipal();
         Todo todo = todoService.findTodoByUserNameAndId(user.getUsername(),id);
         HttpHeaders headers = new HttpHeaders();
-        headers.add("Content-Type", "application/json");
+        headers.add(CONTENT_TYPE, APPLICATION_JSON);
         if (todo == null) {
             return new ResponseEntity<String>(headers, HttpStatus.NOT_FOUND);
         }
