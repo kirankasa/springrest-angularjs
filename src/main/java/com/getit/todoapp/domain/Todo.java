@@ -31,6 +31,7 @@ import javax.persistence.ManyToOne;
 @RooJpaEntity
 @RooJson
 public class Todo {
+    private static final String CLASS_EXTENSION = "*.class";
 
     /**
      */
@@ -59,11 +60,11 @@ public class Todo {
     private Userinfo userName;
 
     public String toJson() {
-        return new JSONSerializer().exclude("*.class").transform(new DateTransformer("MM/dd/yyyy"), Date.class).serialize(this);
+        return new JSONSerializer().exclude(CLASS_EXTENSION).transform(new DateTransformer("MM/dd/yyyy"), Date.class).serialize(this);
     }
 
     public String toJson(String[] fields) {
-        return new JSONSerializer().include(fields).exclude("*.class").serialize(this);
+        return new JSONSerializer().include(fields).exclude(CLASS_EXTENSION).serialize(this);
     }
 
     public static Todo fromJsonToTodo(String json) {
@@ -71,11 +72,11 @@ public class Todo {
     }
 
     public static String toJsonArray(Collection<Todo> collection) {
-        return new JSONSerializer().exclude("*.class").transform(new DateTransformer("MM/dd/yyyy"), Date.class).serialize(collection);
+        return new JSONSerializer().exclude(CLASS_EXTENSION).transform(new DateTransformer("MM/dd/yyyy"), Date.class).serialize(collection);
     }
 
     public static String toJsonArray(Collection<Todo> collection, String[] fields) {
-        return new JSONSerializer().include(fields).exclude("*.class").serialize(collection);
+        return new JSONSerializer().include(fields).exclude(CLASS_EXTENSION).serialize(collection);
     }
 
     public static Collection<Todo> fromJsonArrayToTodoes(String json) {

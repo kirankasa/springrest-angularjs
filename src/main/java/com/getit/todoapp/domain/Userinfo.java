@@ -28,6 +28,7 @@ import org.springframework.roo.addon.json.RooJson;
 @RooJpaEntity
 @RooJson
 public class Userinfo {
+    private static final String CLASS_EXTENSION = "*.class";
 
     /**
      */
@@ -137,11 +138,11 @@ public class Userinfo {
     }
 
 	public String toJson() {
-        return new JSONSerializer().exclude("*.class").serialize(this);
+        return new JSONSerializer().exclude(CLASS_EXTENSION).serialize(this);
     }
 
 	public String toJson(String[] fields) {
-        return new JSONSerializer().include(fields).exclude("*.class").serialize(this);
+        return new JSONSerializer().include(fields).exclude(CLASS_EXTENSION).serialize(this);
     }
 
 	public static Userinfo fromJsonToUserinfo(String json) {
@@ -149,11 +150,11 @@ public class Userinfo {
     }
 
 	public static String toJsonArray(Collection<Userinfo> collection) {
-        return new JSONSerializer().exclude("*.class").serialize(collection);
+        return new JSONSerializer().exclude(CLASS_EXTENSION).serialize(collection);
     }
 
 	public static String toJsonArray(Collection<Userinfo> collection, String[] fields) {
-        return new JSONSerializer().include(fields).exclude("*.class").serialize(collection);
+        return new JSONSerializer().include(fields).exclude(CLASS_EXTENSION).serialize(collection);
     }
 
 	public static Collection<Userinfo> fromJsonArrayToUserinfoes(String json) {

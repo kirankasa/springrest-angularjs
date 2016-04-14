@@ -18,8 +18,10 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @Controller
 @RequestMapping("/userinfoes")
 public class UserinfoController {
+    private static final String APPLICATION_JSON = "application/json";
+    private static final String CONTENT_TYPE = "Content-Type";
 
-	@Autowired
+    @Autowired
     UserService userService;
 
 	@RequestMapping(value = "/{id}", method = RequestMethod.GET, headers = "Accept=application/json")
@@ -27,7 +29,7 @@ public class UserinfoController {
     public ResponseEntity<String> showJson(@PathVariable("id") Long id) {
         Userinfo userinfo = userService.findUserinfo(id);
         HttpHeaders headers = new HttpHeaders();
-        headers.add("Content-Type", "application/json; charset=utf-8");
+        headers.add(CONTENT_TYPE, "application/json; charset=utf-8");
         if (userinfo == null) {
             return new ResponseEntity<String>(headers, HttpStatus.NOT_FOUND);
         }
@@ -38,7 +40,7 @@ public class UserinfoController {
     @ResponseBody
     public ResponseEntity<String> listJson() {
         HttpHeaders headers = new HttpHeaders();
-        headers.add("Content-Type", "application/json; charset=utf-8");
+        headers.add(CONTENT_TYPE, "application/json; charset=utf-8");
         List<Userinfo> result = userService.findAllUserinfoes();
         return new ResponseEntity<String>(Userinfo.toJsonArray(result), headers, HttpStatus.OK);
     }
@@ -48,7 +50,7 @@ public class UserinfoController {
         Userinfo userinfo = Userinfo.fromJsonToUserinfo(json);
         userService.saveUserinfo(userinfo);
         HttpHeaders headers = new HttpHeaders();
-        headers.add("Content-Type", "application/json");
+        headers.add(CONTENT_TYPE, APPLICATION_JSON);
         return new ResponseEntity<String>(headers, HttpStatus.CREATED);
     }
 
@@ -58,14 +60,14 @@ public class UserinfoController {
             userService.saveUserinfo(userinfo);
         }
         HttpHeaders headers = new HttpHeaders();
-        headers.add("Content-Type", "application/json");
+        headers.add(CONTENT_TYPE, APPLICATION_JSON);
         return new ResponseEntity<String>(headers, HttpStatus.CREATED);
     }
 
 	@RequestMapping(value = "/{id}", method = RequestMethod.PUT, headers = "Accept=application/json")
     public ResponseEntity<String> updateFromJson(@RequestBody String json, @PathVariable("id") Long id) {
         HttpHeaders headers = new HttpHeaders();
-        headers.add("Content-Type", "application/json");
+        headers.add(CONTENT_TYPE, APPLICATION_JSON);
         Userinfo userinfo = Userinfo.fromJsonToUserinfo(json);
         if (userService.updateUserinfo(userinfo) == null) {
             return new ResponseEntity<String>(headers, HttpStatus.NOT_FOUND);
@@ -77,7 +79,7 @@ public class UserinfoController {
     public ResponseEntity<String> deleteFromJson(@PathVariable("id") Long id) {
         Userinfo userinfo = userService.findUserinfo(id);
         HttpHeaders headers = new HttpHeaders();
-        headers.add("Content-Type", "application/json");
+        headers.add(CONTENT_TYPE, APPLICATION_JSON);
         if (userinfo == null) {
             return new ResponseEntity<String>(headers, HttpStatus.NOT_FOUND);
         }
