@@ -33,7 +33,7 @@ public class TodoController {
 	private UserService userService;
     
 	@Autowired
-    TodoService todoService;
+    private TodoService todoService;
 
 
 	@RequestMapping(method = RequestMethod.DELETE, headers = "Accept=application/json")

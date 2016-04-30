@@ -14,7 +14,7 @@ import org.springframework.transaction.annotation.Transactional;
 public class TodoServiceImpl implements TodoService {
 
 	@Autowired
-    TodoRepository todoRepository;
+    private TodoRepository todoRepository;
 
 	public long countAllTodoes() {
         return todoRepository.count();

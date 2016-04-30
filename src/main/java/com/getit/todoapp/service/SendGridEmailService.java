@@ -11,7 +11,7 @@ import org.springframework.web.client.RestTemplate;
 public class SendGridEmailService implements EmailService {
 
 	protected static Logger logger = Logger.getLogger("service");
-	private RestTemplate restTemplate = new RestTemplate();
+	private final RestTemplate restTemplate = new RestTemplate();
 
 	@Value("${sendgrid.api.user}")
 	private String sendgridApiUser;

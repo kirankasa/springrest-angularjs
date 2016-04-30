@@ -11,14 +11,14 @@ import com.getit.todoapp.repository.UserRepository;
 @Service
 @Transactional
 public class UserServiceImpl implements UserService {
-	
+
+    @Autowired
+    private UserRepository userRepository;
+
 	public List<Userinfo> findByUserName(String userName){
 		
 		return userRepository.findByUserName(userName);
 	}
-
-	@Autowired
-    UserRepository userRepository;
 
 	public long countAllUserinfoes() {
         return userRepository.count();
