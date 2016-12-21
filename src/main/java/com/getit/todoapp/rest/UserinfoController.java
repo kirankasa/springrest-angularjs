@@ -22,7 +22,7 @@ public class UserinfoController {
     private static final String CONTENT_TYPE = "Content-Type";
 
     @Autowired
-    UserService userService;
+    private UserService userService;
 
 	@RequestMapping(value = "/{id}", method = RequestMethod.GET, headers = "Accept=application/json")
     @ResponseBody

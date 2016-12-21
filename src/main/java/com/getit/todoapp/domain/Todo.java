@@ -59,6 +59,15 @@ public class Todo {
     @ManyToOne
     private Userinfo userName;
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "id")
+    private Long id;
+
+    @Version
+    @Column(name = "version")
+    private Integer version;
+
     public String toJson() {
         return new JSONSerializer().exclude(CLASS_EXTENSION).transform(new DateTransformer("MM/dd/yyyy"), Date.class).serialize(this);
     }
@@ -88,15 +97,6 @@ public class Todo {
 	public String toString() {
         return ReflectionToStringBuilder.toString(this, ToStringStyle.SHORT_PREFIX_STYLE);
     }
-
-	@Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "id")
-    private Long id;
-
-	@Version
-    @Column(name = "version")
-    private Integer version;
 
 	public Long getId() {
         return this.id;

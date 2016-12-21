@@ -21,8 +21,6 @@ public class MyAuthenticationFailureHandler extends
 			throws IOException, ServletException {
 		
 		
-	
-		PrintWriter  printWriter=response.getWriter();
 		JSONObject jsonObject=new JSONObject();
 		System.out.println(exception.getMessage());
 		try {

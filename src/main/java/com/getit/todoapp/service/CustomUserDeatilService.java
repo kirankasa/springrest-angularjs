@@ -22,7 +22,7 @@ public class CustomUserDeatilService implements UserDetailsService {
 	@Autowired
 	private UserService userService;
 
-	private ThreadLocal<User> currentUser = new ThreadLocal<User>();
+	private final ThreadLocal<User> currentUser = new ThreadLocal<User>();
 
 	@Override
 	public UserDetails loadUserByUsername(String username)
